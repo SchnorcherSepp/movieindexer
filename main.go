@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+const VERSION = "1.0"
+
 const (
 	maxImageSize = 200
 	templateHash = "<!-- HASH -->"
@@ -24,7 +26,7 @@ const (
 func main() {
 	// param
 	if len(os.Args) < 2 {
-		println("ERROR: call", filepath.Base(os.Args[0]), "<root path>")
+		println("VERSION", VERSION, ": call", filepath.Base(os.Args[0]), "<root path>")
 		os.Exit(1)
 	}
 	var root = os.Args[1]
@@ -35,7 +37,6 @@ func main() {
 	if err == nil && strings.Contains(string(b), hash) {
 		os.Exit(0) // no changes -> exit
 	}
-	println(hash)
 
 	// scan root
 	rows := new(strings.Builder)
