@@ -67,13 +67,13 @@ func (m *Movie) HtmlImage(max uint) string {
 }
 
 func (m *Movie) TableRow(max uint) string {
-	link := fmt.Sprintf("<a href='%s?html'>%s</a>", m.DirPath, html.EscapeString(m.Title))
+	link := fmt.Sprintf("<a href='%s/?html'>%s</a>", m.DirPath, html.EscapeString(m.Title))
 	return fmt.Sprintf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>\n",
 		m.HtmlImage(max), link, html.EscapeString(m.Year), html.EscapeString(m.Plot), html.EscapeString(m.Added))
 }
 
 func (m *Movie) Div(max uint) string {
-	img := fmt.Sprintf("<a href='%s?html'>%s</a>", m.DirPath, m.HtmlImage(max))
+	img := fmt.Sprintf("<a href='%s/?html'>%s</a>", m.DirPath, m.HtmlImage(max))
 	title := fmt.Sprintf("<a href='%s?html'>%s</a>", m.DirPath, html.EscapeString(m.Title))
 	return fmt.Sprintf("<div class='box'>%s<br>%s (%s)</div>\n", img, title, html.EscapeString(m.Year))
 }
