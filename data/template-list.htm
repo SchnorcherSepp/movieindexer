@@ -1,0 +1,89 @@
+<!DOCTYPE html> <!-- HASH -->
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Filmarchiv</title>
+    <style>
+        body {
+            background: #111;
+            padding: 10px 10px 10px 10px;
+        }
+
+        a:link {
+            color: #000;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<table id="table1">
+    <thead>
+    <tr>
+        <th>Thumbnail</th>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Plot</th>
+        <th>Added</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <!-- INSERT ROWS -->
+
+    </tbody>
+</table>
+
+<script src="https://www.tablefilter.com/tablefilter/tablefilter.js"></script>
+<script data-config>
+    var tfConfig = {
+        base_path: 'https://www.tablefilter.com/tablefilter/',
+        no_results_message: true,
+        ignore_diacritics: true,
+        highlight_keywords: true,
+        alternate_rows: true,
+
+        rows_counter: {
+            text: 'Rows: '
+        },
+        btn_reset: {
+            text: 'Clear'
+        },
+        loader: true,
+
+        // columns data types
+        col_types: [
+            'string',
+            'string',
+            'string',
+            'string',
+            'string',
+            'string',
+            'string',
+            'string',
+        ],
+        // Sort extension: in this example the column data types are provided by the
+        // 'col_types' property. The sort extension also has a 'types' property
+        // defining the columns data type for column sorting. If the 'types'
+        // property is not defined, the sorting extension will fallback to
+        // the 'col_types' definitions.
+        extensions: [{name: 'sort'}]
+    };
+
+    var tf = new TableFilter('table1', tfConfig);
+    tf.init();
+</script>
+
+</body>
+</html>
