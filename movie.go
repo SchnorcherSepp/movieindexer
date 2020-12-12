@@ -74,6 +74,6 @@ func (m *Movie) TableRow(max uint) string {
 
 func (m *Movie) Div(max uint) string {
 	img := fmt.Sprintf("<a href='%s/?html'>%s</a>", m.DirPath, m.HtmlImage(max))
-	title := fmt.Sprintf("<a href='%s?html'>%s</a>", m.DirPath, html.EscapeString(m.Title))
+	title := fmt.Sprintf("<a href='%s/?html'>%s</a>", m.DirPath, html.EscapeString(m.Title))
 	return fmt.Sprintf("<div class='box'>%s<br>%s (%s)</div>\n", img, title, html.EscapeString(m.Year))
 }
